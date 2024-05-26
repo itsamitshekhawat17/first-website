@@ -142,7 +142,7 @@
             new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: labels.map((label, index) => ${label}: ${percentages[index]}), // Append percentage to labels
+                    labels: labels.map((label, index) => `${label}: ${percentages[index]}`), // Append percentage to labels
                     datasets: [{
                         label: 'Mood Tracker',
                         data: scores,
