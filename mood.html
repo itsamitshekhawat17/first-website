@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <style>
+         body {
+            background-image: url(mood.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: white; /* Adjust text color for better contrast */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3cef3;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color:black;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 5px;
+        }
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #chartContainer {
+            position: relative;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mood Tracker</h1>
+        <form id="moodForm">
+            <label for="feeling">How are you feeling today?</label>
+            <select name="feeling" id="feeling">
+                <option value="Very happy">Very happy</option>
+                <option value="Happy">Happy</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Sad">Sad</option>
+                <option value="Very sad">Very sad</option>
+            </select>
+            <label for="energy">How much energy do you have today?</label>
+            <select name="energy" id="energy">
+                <option value="Very energetic">Very energetic</option>
+                <option value="Energetic">Energetic</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Low energy">Low energy</option>
+                <option value="Very low energy">Very low energy</option>
+            </select>
+            <label for="sleep">How well did you sleep last night?</label>
+            <select name="sleep" id="sleep">
+                <option value="Very well">Very well</option>
+                <option value="Well">Well</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Poorly">Poorly</option>
+                <option value="Very poorly">Very poorly</option>
+            </select>
+            <label for="stress">How stressed do you feel today?</label>
+            <select name="stress" id="stress">
+                <option value="Not stressed">Not stressed</option>
+                <option value="Slightly stressed">Slightly stressed</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Stressed">Stressed</option>
+                <option value="Very stressed">Very stressed</option>
+            </select>
+            <label for="connection">How connected do you feel to others today?</label>
+            <select name="connection" id="connection">
+                <option value="Very connected">Very connected</option>
+                <option value="Connected">Connected</option>
+                <option value="Neutral">Neutral</option>
+                <option value="Disconnected">Disconnected</option>
+                <option value="Very disconnected">Very disconnected</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" style="display: none;">
+            <h2>Your Mood Score: <span id="moodScore"></span>%</h2>
+            <div id="chartContainer">
+                <canvas id="moodChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('moodForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+
+            const data = {
+                feeling: formData.get('feeling'),
+                energy: formData.get('energy'),
+                sleep: formData.get('sleep'),
+                stress: formData.get('stress'),
+                connection: formData.get('connection')
+            };
+
+            const moodScore = calculateMoodScore(data);
+            document.getElementById('moodScore').textContent = moodScore.toFixed(2);
+            document.getElementById('result').style.display = 'block';
+
+            const labels = ['Feeling', 'Energy', 'Sleep', 'Stress', 'Connection'];
+            const scores = [data.feeling, data.energy, data.sleep, data.stress, data.connection].map(convertToScore);
+            const percentages = scores.map(score => ((score / 5) * 100).toFixed(2) + '%');
+
+            const ctx = document.getElementById('moodChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels.map((label, index) => ${label}: ${percentages[index]}), // Append percentage to labels
+                    datasets: [{
+                        label: 'Mood Tracker',
+                        data: scores,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        });
+
+        function calculateMoodScore(data) {
+            const scoreMap = {
+                'Very happy': 5,
+                'Happy': 4,
+                'Neutral': 3,
+                'Sad': 2,
+                'Very sad': 1,
+                'Very energetic': 5,
+                'Energetic': 4,
+                'Neutral': 3,
+                'Low energy': 2,
+                'Very low energy': 1,
+                'Very well': 5,
+                'Well': 4,
+                'Neutral': 3,
+                'Poorly': 2,
+                'Very poorly': 1,
+                'Not stressed': 5,
+                'Slightly stressed': 4,
+                'Neutral': 3,
+                'Stressed': 2,
+                'Very stressed': 1,
+                'Very connected': 5,
+                'Connected': 4,
+                'Neutral': 3,
+                'Disconnected': 2,
+                'Very disconnected': 1
+            };
+
+            let totalScore = 0;
+            let numberOfQuestions = 0;
+
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    totalScore += scoreMap[data[key]];
+                    numberOfQuestions++;
+                }
+            }
+
+            return (totalScore / (numberOfQuestions * 5)) * 100; // Normalize to 100
+        }
+
+        function convertToScore(value) {
+            const scoreMap = {
+                'Very happy': 5,
+                'Happy': 4,
+                'Neutral': 3,
+                'Sad': 2,
+                'Very sad': 1,
+                'Very energetic': 5,
+                'Energetic': 4,
+                'Neutral': 3,
+                'Low energy': 2,
+                'Very low energy': 1,
+                'Very well': 5,
+                'Well': 4,
+                'Neutral': 3,
+                'Poorly': 2,
+                'Very poorly': 1,
+                'Not stressed': 5,
+                'Slightly stressed': 4,
+                'Neutral': 3,
+                'Stressed': 2,
+                'Very stressed': 1,
+                'Very connected': 5,
+                'Connected': 4,
+                'Neutral': 3,
+                'Disconnected': 2,
+                'Very disconnected': 1
+            };
+            return scoreMap[value];
+        }
+    </script>
+</body>
+</html>

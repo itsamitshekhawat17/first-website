@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENZIFY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+     body {
+            background-image: url(bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: white; /* Adjust text color for better contrast */
+        }
+        #head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fef6f6;
+            box-sizing: border-box;
+            height: 80px;
+        }
+        #head a {
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        #head a:hover {
+            color: rgb(255, 0, 93);
+        }
+        .card {
+            transition: transform 0.3s;
+            margin-top: 290px;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="head">
+            <div>
+                <a><b>GENZIFY</b></a>
+            </div>
+            <div>
+                <a href="Genzify.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="Mood.html">Mood Tracker</a>
+                <a href="chatbot.html">Chatbot</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    EXPLORE
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="EXPLORE" href="Genzify.html">Home</a></li>
+                    <li><a class="EXPLORE" href="service.html">Service</a></li>
+                    <li><a class="EXPLORE" href="Mood.html">Mood Tracker</a></li>
+                    <li><a class="EXPLORE" href="chatbot.html">Chatbot</a></li>
+                    <li><a class="EXPLORE" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Mindfulness</h5>
+                                    <p class="card-text"> Mindfulness is about paying full attention to what is happening right now. It means noticing your thoughts and feelings without judging them. Practicing. It can help reduce stress and make you feel better overall. People often practice it through meditation and simple breathing exercises.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Self Care</h5>
+                                    <p class="card-text">Self-care means taking care of yourself to stay healthy and happy. It includes eating good food, exercising, getting enough sleep, and doing things you enjoy. Taking time for self-care helps you feel better and reduces stress. It’s important for keeping a good balance in life</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Listening Music</h5>
+                                    <p class="card-text">Listening to music makes life better by bringing out emotions and connecting people. It can comfort us, spark creativity, and change our moods. Whether it's through catchy tunes, calming melodies, or lively performances, music is a powerful and universal friend.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Consulting Doctor</h5>
+                                    <p class="card-text">Consulting doctors ensures accurate diagnosis and effective treatment, preventing worsening conditions. They provide expert advice, prescribe medications, and offer preventive care. Regular check-ups detect health issues early, improving outcomes and guiding healthy lifestyles for overall well-being.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Exercising daily</h5>
+                                    <p class="card-text">Exercising daily boosts physical and mental health. It strengthens muscles, improves heart health, and increases energy levels. Regular exercise helps control weight, reduces stress, and enhances mood. It also promotes better sleep and overall well-being, making you feel happier and healthier.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                               
+                                <div class="card-body">
+                                    <h5 class="card-title">Watching Movies</h5>
+                                    <p class="card-text"> Watching movies can improve mental health by providing relaxation and stress relief. It offers a temporary escape from daily worries, boosts mood, and promotes emotional release. Enjoying films with friends or family strengthens bonds and creates positive social interactions, enhancing overall well-being.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

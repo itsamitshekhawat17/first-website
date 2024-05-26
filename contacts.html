@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="head">
+            <div>
+                <a><b>GENZIFY</b></a>
+            </div>
+            <div>
+                <a href="Genzify.html">Home</a>
+                <a href="service.html">Services</a>
+                <a href="Mood.html">Mood Tracker</a>
+                <a href="chatbot.html">Chatbot</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    EXPLORE
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="EXPLORE" href="Genzify.html">Home</a></li>
+                    <li><a class="EXPLORE" href="service.html">Service</a></li>
+                    <li><a class="EXPLORE" href="Mood.html">Mood Tracker</a></li>
+                    <li><a class="EXPLORE" href="chatbot.html">Chatbot</a></li>
+                    <li><a class="EXPLORE" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="b">
+            <center>
+                <p><b>CONTACT US</b></p>
+                <a href="Genzify.html"><h2>Home</h2></a>/<a href="contact.html"><h2>Contact</h2></a>
+            </center>
+        </div>
+    </header>
+    <section class="c1">
+        <div id="a2">
+            <form action="/action_page.php">
+                <label for="fname">Name:</label><br>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="lname">Email:</label><br>
+                <input type="text" id="lname" name="lname"><br><br>
+                <label for="phone">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone"><br><br>
+                <label for="subject">Subject:</label><br>
+                <input type="text" id="subject" name="subject"><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="contact-info" class="d-flex justify-content-center align-items-center mt-4">
+            <div class="info-item text-center mx-3">
+                <img src="icon3.png" alt="Location Icon" class="icon">
+                <p class="small-text">Sitapura, Jaipur, India</p>
+            </div>
+            <div class="info-item text-center mx-3">
+                <img src="icon2.png" alt="Email Icon" class="icon">
+                <p class="small-text">genzify4@gmail.com</p>
+            </div>
+            <div class="info-item text-center mx-3">
+                <img src="icon1.png" alt="Phone Icon" class="icon">
+                <p class="small-text">(+91) 987654321, (+91) 897654321</p>
+            </div>
+        </div>
+    </section>
+    <style>
+        body {
+            background-image: url(bg1.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+        }
+        .dropdown-menu a:hover {
+            color: rgb(255, 0, 93);  
+        }
+        #a1 {
+            justify-content: space-between;
+        }
+        #a2 {
+            margin-top: 60px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            border: 3px solid #f1f1f1;
+            width: 30%;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        input[type=text],
+        input[type=submit] {
+            width: 100%;
+            padding: 10px 15px;
+            margin: 6px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #449944;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        .custom-btn {
+            margin: 70px;
+            margin-left: 70px;
+            width: 230px;
+            height: 100px;
+            font-size: 1.5rem;
+        }
+        .popover {
+            background-color: #f0f0f0;
+            border: 1px solid #333;
+        }
+        .popover .popover-header {
+            background-color: #333;
+            color: #fff;
+            border-bottom: 1px solid #333;
+        }
+        .popover .popover-body {
+            color: #333;
+        }
+        .popover .arrow::before {
+            border-top-color: #333;
+        }
+        #b {
+            height: 300px;
+        }
+        p {
+            padding-top: 70px;
+            font-size: 40px;
+        }
+        #head {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 20px;
+            background-color: #fef6f6;
+            box-sizing: border-box;
+            height: 80px;
+            color: black;
+        }
+        button {
+            margin-left: 30px;
+        }
+        a {
+            padding: 10px;
+            color: black;
+        }
+        a:hover {
+            color: rgb(255, 0, 93);
+        }
+        #contact-info {
+            margin-top: 90px; /* Space between icons and form */
+        }
+        #contact-info .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin:5px;
+        }
+        .small-text {
+            font-size: 0.9em;
+        }
+        .icon {
+            width: 70px;
+            height: 70px;
+            transition: transform 0.3s; /* Smooth hover effect */
+        }
+        .icon:hover {
+            transform: scale(1.1); /* Enlarge icon on hover */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
